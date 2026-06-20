@@ -1,38 +1,126 @@
+:root {
+    --card-width: clamp(200px, 95vw, 550px);
+    --radius-basic: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+    width: var(--card-width);
+    display: flex;
+    justify-content: end;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn>button {
+    background-color: #065ebc83;
+    border: none;
+    cursor: pointer;
+    color: #eee;
+    border-radius: var(--radius-basic);
+    font-size: clamp(12px, 3vw, 16px);
+    margin-top: 10px;
+    padding: 15px;
+    transition: .3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn>button:hover {
+    background-color: #0556acb1;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+    background-color: #182c9fd9;
+    width: var(--card-width);
+    border-radius: var(--radius-basic);
+    padding: 20px 30px;
+    font-family: 'cairo-font';
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+    display: flex;
+}
+
+.title h1 {
+    font-size: clamp(24px, 7vw, 40px);
+}
+
+.title p {
+    align-self: end;
+    margin-bottom: 5px;
+    word-spacing: 3px;
+    font-size: clamp(12px, 3vw, 16px);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .details {
+    width: 50%;
+}
+
+.content .details div {
+    display: flex;
+    margin-top: -15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .details div h1 {
+    font-size: clamp(40px, 10vw, 60px);
+    margin: 0;
+}
+
+.content .details>p {
+    font-size: clamp(16px, 4vw, 20px);
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.content .details div h1 sup {
+    font-size: clamp(20px, 5vw, 30px);
+}
+
+.content .details div p.sep {
+    color: #a2a2a2;
+    margin: clamp(7px, 3vw, 20px);
+}
+
+.content .details div p {
+    font-size: clamp(11px, 3vw, 16px);
+}
+
+.content .details div img {
+    width: clamp(80px, 20vw, 100px);
+}
+
+.content .details div p span {
+    margin-right: 4px;
+}
+
+@font-face {
+    font-family: 'cairo-font';
+    src: url('../public/fonts/cairo-fonts/Cairo-Bold.ttf');
+}
+
+@media (max-width: 550px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .content .details {
+        width: 60%;
+    }
 }
