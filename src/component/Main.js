@@ -6,11 +6,11 @@ import moment from "moment/moment";
 import "moment/min/locales";
 
 export default function Main() {
-  const date = moment().format("LL");
   const { t, i18n } = useTranslation();
   const [tempData, setTempData] = useState({});
   const currentLang = i18n.language;
-  currentLang === "ar" ? moment.locale("ar") : moment.locale("en");
+  moment.locale(currentLang === "ar" ? "ar" : "en");
+  const date = moment().format("LL");
   useEffect(() => {
     let cancel;
     axios
